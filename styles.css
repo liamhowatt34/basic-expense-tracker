@@ -17,7 +17,7 @@
 }
 
 .border {
-    background: rgb(77, 79, 184);
+    background: rgb(56, 58, 170);
     border-radius: 12px;
     box-shadow: 0 2px 20px rgb(86, 89, 89);
     display: flex;
@@ -55,34 +55,36 @@
 }
 
 .expenses h2 {
-    color: gray;
+    color: azure;
     font-size: 1.8rem;
 }
 
 .income h2 {
-    color: gray;
+    color: azure;
     font-size: 1.8rem;
 }
 
 .expenses input {
     background: none;
-    border: 1px solid azure;
+    border: 1px double azure;
     border-radius: 6px;
     color: azure;
-    font-size: 16px;
+    font-size: 14px;
     height: 2rem;
     padding: 6px;
+    outline: none;
     width: 30%;
 }
 
 .income input {
     background: none;
-    border: 1px solid azure;
+    border: 1px double azure;
     border-radius: 6px;
     color: azure;
-    font-size: 16px;
+    font-size: 14px;
     height: 2rem;
     padding: 6px;
+    outline: none;
     width: 30%;
 }
 
@@ -95,6 +97,7 @@
     font-size: 16px;
     font-weight: 700;
     height: 2rem;
+    transition: .1s ease-in;
     width: 150px;
 }
 
@@ -107,5 +110,17 @@
     font-size: 16px;
     font-weight: 700;
     height: 2rem;
+    transition: .1s ease-in;
     width: 150px;
+}
+
+
+.add-btn-exp button:hover {
+    background: azure;
+    color: rgb(56, 58, 170);
+}
+
+.add-btn-inc button:hover {
+    background: azure;
+    color: rgb(56, 58, 170);
 }
