@@ -21,6 +21,65 @@
     border-radius: 12px;
     box-shadow: 0 2px 20px rgb(86, 89, 89);
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     height: 90%;
+    padding: 10px;
     width: 50%;
+}
+
+.total-display {
+    border: 1px solid azure;
+    height: 30%;
+    width: 100%;
+}
+
+.expenses {
+    border: 1px solid azure;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30%;
+    padding: 10px;
+    width: 100%;
+}
+
+.income {
+    border: 1px solid azure;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30%;
+    padding: 10px;
+    width: 100%
+}
+
+.expenses input {
+    height: 2rem;
+    width: 30%;
+}
+
+.add-btn-exp button {
+    background: none;
+    border: 1px solid azure;
+    border-radius: 10px;
+    cursor: pointer;
+    color: azure;
+    height: 2rem;
+    width: 150px;
+}
+
+.add-btn-inc button {
+    background: none;
+    border: 1px solid azure;
+    border-radius: 10px;
+    cursor: pointer;
+    color: azure;
+    height: 2rem;
+    width: 150px;
+}
+
+.income input {
+    height: 2rem;
+    width: 30%;
 }
