@@ -29,42 +29,50 @@
 }
 
 .total-display {
+    padding: 10px;
     border: 1px solid azure;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
     height: 30%;
     width: 100%;
 }
 
-.expenses {
+.input-area {
     border: 1px solid azure;
+    border-radius: 8px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     height: 30%;
     padding: 10px;
     width: 100%;
 }
 
-.income {
-    border: 1px solid azure;
+.input-field {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 30%;
-    padding: 10px;
-    width: 100%
+    height: 100%;
+    width: 50%;
 }
 
-.expenses h2 {
+.total-display h1 {
     color: azure;
-    font-size: 1.8rem;
 }
 
-.income h2 {
+.secondary-display {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.input-area h2 {
     color: azure;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
-.expenses input {
+.input-area input {
     background: none;
     border: 1px double azure;
     border-radius: 6px;
@@ -73,22 +81,10 @@
     height: 2rem;
     padding: 6px;
     outline: none;
-    width: 30%;
+    width: 100%;
 }
 
-.income input {
-    background: none;
-    border: 1px double azure;
-    border-radius: 6px;
-    color: azure;
-    font-size: 14px;
-    height: 2rem;
-    padding: 6px;
-    outline: none;
-    width: 30%;
-}
-
-.add-btn-exp button {
+.add-btn button {
     background: none;
     border: 1px solid azure;
     border-radius: 6px;
@@ -98,29 +94,10 @@
     font-weight: 700;
     height: 2rem;
     transition: .1s ease-in;
-    width: 150px;
+    width: 50%;
 }
 
-.add-btn-inc button {
-    background: none;
-    border: 1px solid azure;
-    border-radius: 6px;
-    cursor: pointer;
-    color: azure;
-    font-size: 16px;
-    font-weight: 700;
-    height: 2rem;
-    transition: .1s ease-in;
-    width: 150px;
-}
-
-
-.add-btn-exp button:hover {
-    background: azure;
-    color: rgb(56, 58, 170);
-}
-
-.add-btn-inc button:hover {
+.add-btn button:hover {
     background: azure;
     color: rgb(56, 58, 170);
 }

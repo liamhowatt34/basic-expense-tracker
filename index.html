@@ -10,18 +10,28 @@
 <body>
     <div class="container">
         <div class="border">
-            <div class="total-display"></div>
-            <div class="expenses">
-                <h2>Add Expenses</h2>
-                <div class="expense-title"><input type="text" placeholder="Expense Description"></div>
-                <div class="expense-amount"><input type="text" placeholder="Expense Amount"></div>
-                <div class="add-btn-exp"><button>Add</button></div>
+            <div class="total-display"><h1>Total: </h1></div>
+            <div class="input-area">
+                <div class="input-field">
+                    <h2>Add Expenses</h2>
+                    <div class="input-title"><input type="text" id="exp-desc" placeholder="Expense Description"></div>
+                    <div class="input-amount"><input type="text" id="exp-amt" placeholder="Expense Amount"></div>
+                    <div class="add-btn"><button id="exp-add">Add</button></div>
+                </div>
+                <div class="secondary-display">
+                    <h2>Expenses Total: </h2>
+                </div>
             </div>
-            <div class="income">
-                <h2>Add Income</h2>
-                <div class="Income-title"><input type="text" placeholder="Income Description"></div>
-                <div class="Income-amount"><input type="text" placeholder="Income Amount"></div>
-                <div class="add-btn-inc"><button>Add</button></div>
+            <div class="input-area">
+                <div class="input-field">
+                    <h2>Add Income</h2>
+                    <div class="input-title"><input type="text" id="inc-desc" placeholder="Income Description"></div>
+                    <div class="input-amount"><input type="text" id="inc-amt" placeholder="Income Amount"></div>
+                    <div class="add-btn"><button id="inc-add">Add</button></div>
+                </div>
+                <div class="secondary-display">
+                    <h2>Income Total: </h2>
+                </div>
             </div>
         </div>
     </div>
