@@ -84,10 +84,6 @@ li {
     width: 90%;
 }
 
-.input-area input::-webkit-input-placeholder {
-    color: azure;
-}
-
 .btn button {
     background: none;
     border-radius: 6px;
