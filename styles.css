@@ -120,10 +120,16 @@ input::-webkit-input-placeholder {
 .secondary-display ul {
     border-radius: 8px;
     border: 1px solid azure;
-    height: 90%;
     line-height: 2rem;
-    overflow: auto;
+    max-height: 0;
+    overflow: hidden;
     padding: 10px;
+    transition: max-height 0.3s ease-out;
+}
+
+.secondary-display ul.expanded {
+    max-height: 100%;
+    overflow: auto;
 }
 
 .secondary-display li {
@@ -158,7 +164,5 @@ input::-webkit-input-placeholder {
     height: 30px;
     justify-content: center;
     margin-bottom: 10px;
-    transition: .1s ease-in-out;
-    transform: rotate(90);
     width: 30px;
 }
