@@ -13,6 +13,10 @@ li {
     color: bisque;
 }
 
+input::-webkit-input-placeholder {
+    color: azure;
+}
+
 .container {
     align-items: center;
     background-color: #FF3CAC;
@@ -106,13 +110,15 @@ li {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 30px;
     width: 50%;
 }
 
-.secondary-display h2 {
+.material-symbols-outlined {
+    color: azure;
     margin-bottom: 10px;
-    margin-top: -25px;
+    border: 1px solid azure;
+    width: 27px;
+    border-radius: 15px;
 }
 
 .secondary-display ul {
