@@ -106,18 +106,19 @@ li {
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 30px;
     width: 50%;
 }
 
-.material-symbols-outlined {
-    color: azure;
+.secondary-display h2 {
     margin-bottom: 10px;
+    margin-top: -25px;
 }
 
 .secondary-display ul {
     border-radius: 8px;
     border: 1px solid azure;
-    height: 90%;
+    height: 100%;
     line-height: 2rem;
     overflow: auto;
     padding: 10px;
