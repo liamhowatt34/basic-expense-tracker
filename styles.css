@@ -115,16 +115,12 @@ input::-webkit-input-placeholder {
 
 .material-symbols-outlined {
     color: azure;
-    margin-bottom: 10px;
-    border: 1px solid azure;
-    width: 27px;
-    border-radius: 15px;
 }
 
 .secondary-display ul {
     border-radius: 8px;
     border: 1px solid azure;
-    height: 100%;
+    height: 90%;
     line-height: 2rem;
     overflow: auto;
     padding: 10px;
@@ -139,4 +135,30 @@ input::-webkit-input-placeholder {
     height: 3rem;
     margin: 10px 0;
     padding: 5px;
+}
+
+.secondary-display-header {
+    display: flex;
+    color: azure;
+}
+
+.secondary-display-header h3 {
+    margin-top: 3px;
+    margin-right: 3px;
+}
+
+.hide-show-btn {
+    align-items: center;
+    background: none;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    font-size: 12px;
+    height: 30px;
+    justify-content: center;
+    margin-bottom: 10px;
+    transition: .1s ease-in-out;
+    transform: rotate(90);
+    width: 30px;
 }
