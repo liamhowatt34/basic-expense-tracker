@@ -34,13 +34,8 @@ function isValidInput(inputDesc, inputAmt) {
 
 
 function displayErrorMessage(message) {
-    // Create a new div element
     const errorDiv = document.createElement('div');
-
-    // Set the text content of the div to the error message
     errorDiv.textContent = message;
-
-    // Add a class to style the error message (you can customize this class in your CSS)
     errorDiv.classList.add('error-message');
 
     // Append the error div to the body or any other container element
@@ -49,7 +44,7 @@ function displayErrorMessage(message) {
     // Remove the error message after a certain time (e.g., 3 seconds)
     setTimeout(function () {
         document.body.removeChild(errorDiv);
-    }, 3000); // Adjust the time as needed
+    }, 3000);
 }
 
 
@@ -61,7 +56,7 @@ function appendToList(list, inputDesc, inputAmt, array, operation) {
 
     // add our item to an html ul
     let liElement = document.createElement("li");
-    liElement.textContent = `- ${inputDesc.value}, $${inputAmt.value}`;
+    liElement.textContent = `Item: ${inputDesc.value} - $${inputAmt.value}`;
     list.appendChild(liElement);
 
     // keep track of our items, running total, and update the HTML h2
