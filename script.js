@@ -21,90 +21,101 @@ function toggleExpList() {
     expList.classList.toggle('expanded');
 }
 
+
 function toggleIncList() {
     incList.classList.toggle('expanded');
 }
 
+
+// input info
+function isValidInput(inputDesc, inputAmt) {
+    return inputDesc.value.trim() !== '' && !isNaN(inputAmt.value);
+}
+
+
+function displayErrorMessage(message) {
+    // Create a new div element
+    const errorDiv = document.createElement('div');
+
+    // Set the text content of the div to the error message
+    errorDiv.textContent = message;
+
+    // Add a class to style the error message (you can customize this class in your CSS)
+    errorDiv.classList.add('error-message');
+
+    // Append the error div to the body or any other container element
+    document.body.appendChild(errorDiv);
+
+    // Remove the error message after a certain time (e.g., 3 seconds)
+    setTimeout(function () {
+        document.body.removeChild(errorDiv);
+    }, 3000); // Adjust the time as needed
+}
+
+
+function appendToList(list, inputDesc, inputAmt, array, operation) {
+    if (!isValidInput(inputDesc, inputAmt)) {
+        displayErrorMessage('Error. Amount must be a number.');
+        return;
+    }
+
+    // add our item to an html ul
+    let liElement = document.createElement("li");
+    liElement.textContent = `- ${inputDesc.value}, $${inputAmt.value}`;
+    list.appendChild(liElement);
+
+    // keep track of our items, running total, and update the HTML h2
+    array.push(Number(inputAmt.value));
+    runningTotal += operation * Number(inputAmt.value);
+    total.textContent = `Total: $${runningTotal}`;
+
+    // need to add a selected class for every item we append to the list
+    // to use with the remove button
+    liElement.addEventListener('click', function () {
+        liElement.classList.toggle('selected');
+    });
+
+    inputDesc.value = '';
+    inputAmt.value = '';
+}
+
+
+function removeFromList(list, selectedItems, array, operation) {
+    // going over our lists to remove them and updating out runningTotal
+    for (let i = 0; i < selectedItems.length; i++) {
+        let amount = parseFloat(selectedItems[i].textContent.split('$')[1].trim());
+        if (array.includes(amount)) {
+            let index = array.indexOf(amount);
+            array.splice(index, 1);
+            runningTotal -= operation * amount;
+        }
+    }
+
+    total.textContent = `Total: $${runningTotal}`;
+
+    // removing the selected class once removed from ul
+    selectedItems.forEach(function (item) {
+        list.removeChild(item);
+    });
+}
+
+
+// event listeners
 expHideShowButton.addEventListener('click', toggleExpList);
 incHideShowButton.addEventListener('click', toggleIncList);
 
+expAddBtn.addEventListener('click', function () {
+    appendToList(expList, expInputDesc, expInputAmt, expenses, -1);
+});
 
-// input info
-function appendExpList() {
-    let liElement = document.createElement("li");
-    liElement.textContent = `- ${expInputDesc.value}, $${expInputAmt.value}`;
-    expList.appendChild(liElement);
+expRemoveBtn.addEventListener('click', function () {
+    removeFromList(expList, expList.querySelectorAll('.selected'), expenses, -1);
+});
 
-    expenses.push(Number(expInputAmt.value));
-    runningTotal -= Number(expInputAmt.value);
-    total.textContent = `Total: $${runningTotal}`;
+incAddBtn.addEventListener('click', function () {
+    appendToList(incList, incInputDesc, incInputAmt, incomes, 1);
+});
 
-    liElement.addEventListener('click', function () {
-        liElement.classList.toggle('selected');
-    });
-
-    expInputDesc.value = '';
-    expInputAmt.value = '';
-}
-
-
-function removeExpList() {
-    let selectedItems = expList.querySelectorAll('.selected');
-
-    for (let i = 0; i < selectedItems.length; i++) {
-        let expenseAmount = parseFloat(selectedItems[i].textContent.split('$')[1].trim());
-        if (expenses.includes(expenseAmount)) {
-            let index = expenses.indexOf(expenseAmount);
-            expenses.splice(index, 1);
-            runningTotal += expenseAmount;
-        }
-    }
-
-    total.textContent = `Total: $${runningTotal}`;
-
-    selectedItems.forEach(function (item) {
-        expList.removeChild(item);
-    });
-}
-
-function appendIncList() {
-    let liElement = document.createElement("li");
-    liElement.textContent = `- ${incInputDesc.value}, $${incInputAmt.value}`;
-    incList.appendChild(liElement);
-
-    incomes.push(Number(incInputAmt.value));
-    runningTotal += Number(incInputAmt.value);
-    total.textContent = `Total: $${runningTotal}`;
-
-    liElement.addEventListener('click', function () {
-        liElement.classList.toggle('selected');
-    });
-
-    incInputDesc.value = '';
-    incInputAmt.value = '';
-}
-
-
-function removeIncList() {
-    let selectedItems = incList.querySelectorAll('.selected');
-
-    for (let i = 0; i < selectedItems.length; i++) {
-        let incomeAmount = parseFloat(selectedItems[i].textContent.split('$')[1].trim());
-        if (incomes.includes(incomeAmount)) {
-            let index = incomes.indexOf(incomeAmount);
-            incomes.splice(index, 1);
-            runningTotal -= incomeAmount;
-        }
-    }
-
-    total.textContent = `Total: $${runningTotal}`;
-
-    selectedItems.forEach(function (item) {
-        incList.removeChild(item);
-    });
-}
-
-expRemoveBtn.addEventListener('click', removeExpList);
-expAddBtn.addEventListener('click', appendExpList);
-incRemoveBtn.addEventListener('click', removeIncList);
-incAddBtn.addEventListener('click', appendIncList);
+incRemoveBtn.addEventListener('click', function () {
+    removeFromList(incList, incList.querySelectorAll('.selected'), incomes, 1);
+});
